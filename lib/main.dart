@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedbtask/core/style/widgets/network_manager.dart';
 
 import 'core/constants/strings.dart';
 import 'core/routing/app_router.dart';
@@ -18,11 +19,11 @@ class MyApp extends StatelessWidget {
       title: appName,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter().generateRoute,
-      initialRoute: "asdsadd",
-     // Routes.splashScreen,
-      theme: ThemeData(
+      initialRoute:  Routes.splashScreen,
+      theme: ThemeData  (
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      builder:(context,child)=> NetworkManager(child: child!),
 
     );
   }
