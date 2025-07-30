@@ -3,3 +3,5 @@
 import 'package:flutter/material.dart';
 
 const Color errorColor=Colors.red;
+const Color stateBarColor=Colors.white;
+const Color secondFontColor=Colors.white;

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:themoviedbtask/core/style/widgets/network_manager.dart';
 
 import 'core/constants/strings.dart';
+import 'core/di/dependency_injection.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 
-void main() {
+void main() async{
+  await setupGetIt();
+
   runApp(const MyApp());
 }
 

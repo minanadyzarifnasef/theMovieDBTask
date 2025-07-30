@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-import '../../constants/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:themoviedbtask/core/constants/colors.dart';
+
 import '../../constants/constants.dart';
 import '../../constants/strings.dart';
 import '../../services/network_checker_service.dart';
@@ -17,27 +19,25 @@ class NetworkManager extends StatelessWidget {
       initialData: NetworkConnectivityService.instance.isConnected,
       builder: (context, snapshot) {
         final isConnected = snapshot.data ?? true;
-
-        return MediaQuery(
-          data: MediaQuery.of(
-            context,
-          ).copyWith(textScaler: TextScaler.noScaling),
-          child: SafeArea(
-              child: Scaffold(
+        log("current network state is connected ? $isConnected");
+        return ColoredBox(
+          color:  stateBarColor,
+          child: Scaffold(
             body: Column(
               children: [
                 if (!isConnected)
                   Container(
                     decoration: const BoxDecoration(color: errorColor),
-                    padding: const EdgeInsets.all(horizontalPadding),
                     width: MediaQuery.of(context).size.width,
-                    child: const Text(offlineHint,style: TextStyles.bold18,
+                    padding: const EdgeInsets.only(left: horizontalPadding,right: horizontalPadding,top: 50,bottom: 10),
+                    child:const Text(
+                      offlineHint,
+                      style: TextStyles.normal16white,
                     ),
                   ),
                 Expanded(child: child),
               ],
             ),
-          )
           ),
         );
       },
