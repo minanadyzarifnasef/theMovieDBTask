@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:themoviedbtask/core/constants/colors.dart';
 
 import '../../constants/constants.dart';
@@ -29,7 +30,7 @@ class NetworkManager extends StatelessWidget {
                   Container(
                     decoration: const BoxDecoration(color: errorColor),
                     width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.only(left: horizontalPadding,right: horizontalPadding,top: 50,bottom: 10),
+                    padding:  EdgeInsets.only(left: horizontalPadding,right: horizontalPadding,top: 50.h,bottom: 10.h),
                     child:const Text(
                       offlineHint,
                       style: TextStyles.normal16white,
