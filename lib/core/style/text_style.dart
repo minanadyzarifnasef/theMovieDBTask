@@ -8,5 +8,5 @@ abstract class TextStyles {
 
 
   static const TextStyle normal16white = TextStyle(fontSize: 16, fontWeight: FontWeight.normal,color: secondFontColor);
-  static const TextStyle bold16white = TextStyle(fontSize: 16, fontWeight: FontWeight.normal,color: secondFontColor);
+  static const TextStyle bold16white = TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: secondFontColor);
 }

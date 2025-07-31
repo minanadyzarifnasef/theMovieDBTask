@@ -8,6 +8,7 @@ import 'core/routing/routes.dart';
 import 'core/style/widgets/responsive_wrapper.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
 
   runApp(const MyApp());
@@ -24,8 +25,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter().generateRoute,
       initialRoute: Routes.splashScreen,
+
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: 'Tajawal',
       ),
       builder: (context, child) => ResponsiveWrapper(
           child: NetworkManager(child: child!)
