@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
             Spacer(),
             GoButton(
               titleKey: continueBtn,
-              fun: ()=>context.pushNamed(Routes.actorsListScreen),
+              fun: ()=>context.pushNamedAndRemoveUntil(Routes.actorsListScreen),
               btColor: backgroundColor,
               textColor: primaryColor,
             ),
