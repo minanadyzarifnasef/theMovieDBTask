@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:themoviedbtask/core/style/widgets/full_screen_image_viewers.dart';
 import 'package:themoviedbtask/features/actors/presentation/actor_details.dart';
 import 'package:themoviedbtask/features/onbording/presentation/splash_screen.dart';
 
@@ -19,6 +20,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ActorsListScreen());
       case Routes.actorDetails:
         return MaterialPageRoute(builder: (_) =>  ActorDetails(actor: arguments ));
+      case Routes.fullScreenImageViewer:
+        return MaterialPageRoute(builder: (_) =>  FullScreenImageViewer(imageUrl: arguments as String, ));
      
 
       default:

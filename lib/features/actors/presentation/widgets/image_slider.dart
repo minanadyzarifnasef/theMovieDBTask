@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
+import 'package:themoviedbtask/core/helper/extensions.dart';
+import 'package:themoviedbtask/core/routing/routes.dart';
 class ImageSlider extends StatelessWidget {
   const ImageSlider({super.key});
 
@@ -14,20 +16,25 @@ class ImageSlider extends StatelessWidget {
 
       ),
       itemBuilder: (context, index, realIndex) {
+        String imageUrl = "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?cs=srgb&dl=pexels-vinicius-wiesehofer-289347-1130626.jpg&fm=jpg";
+
         return ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: [
               Image.network(
-                "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?cs=srgb&dl=pexels-vinicius-wiesehofer-289347-1130626.jpg&fm=jpg",
+                imageUrl,
                 fit: BoxFit.cover,
                 width: double.infinity,
               ),
 
-                const Positioned(
+                 Positioned(
                   top: 10,
                   right: 10,
-                  child: Icon(Icons.fullscreen, color: Colors.white),
+                  child:GestureDetector(
+                    onTap:()=>context.pushNamed(Routes.fullScreenImageViewer,arguments: imageUrl) ,
+                    child: Icon(Icons.fullscreen, color: Colors.white),
+                  ),
                 ),
             ],
           ),
