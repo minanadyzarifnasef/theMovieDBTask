@@ -1,4 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/colors.dart';
+import 'loader.dart';
 
 
 
@@ -27,7 +31,22 @@ class FullScreenImageViewer extends StatelessWidget {
       ),
       body: Center(
         child: InteractiveViewer(
-          child: Image.network(imageUrl),
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            fit: BoxFit.cover,
+            width: double.infinity,
+
+            placeholder: (context, url) => Center(
+              child: Loader(
+                color: primaryColor,
+              ), // Temporary loader
+            ),
+            errorWidget: (context, url, error) => Center(
+              child: Icon(Icons.error, color: Colors.red),
+            ),
+          ),
+
+
         ),
       ),
     );
