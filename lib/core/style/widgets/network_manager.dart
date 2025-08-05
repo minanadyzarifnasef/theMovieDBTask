@@ -31,7 +31,7 @@ class NetworkManager extends StatelessWidget {
                     decoration: const BoxDecoration(color: errorColor),
                     width: MediaQuery.of(context).size.width,
                     padding:  EdgeInsets.only(left: horizontalPadding,right: horizontalPadding,top: 50.h,bottom: 10.h),
-                    child:const Text(
+                    child: Text(
                       offlineHint,
                       style: TextStyles.normal16white,
                     ),

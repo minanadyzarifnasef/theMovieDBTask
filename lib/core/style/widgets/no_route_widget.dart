@@ -7,9 +7,9 @@ class NoRouteWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child:  Text(invalidRoute,style: TextStyles.bold24,),
+        child:  Text(invalidRoute,style: TextStyles.bold16,),
       ),
     );
   }

@@ -9,4 +9,5 @@ const String svgUrl='assets/svgs';
 const String invalidRoute="This isn't valid route";
 const String offlineHint="You're currently offline. Please check your internet connection and try again.";
 const String continueBtn="Continue";
+const String backBtn="Back To Home";
 const String welcomeVisitor="Welcome, Visitor!";

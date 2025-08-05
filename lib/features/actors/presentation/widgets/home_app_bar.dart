@@ -6,7 +6,8 @@ import 'package:themoviedbtask/core/constants/strings.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/style/text_style.dart';
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+  const HomeAppBar({required this.title,super.key});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Image.asset("$imgUrl/icon.png",width: 50.w,),
           SizedBox(width: 5.w,),
-          Text(welcomeVisitor,style: TextStyles.bold24.copyWith(color: primaryColor),),
+          Text(title,style: TextStyles.bold16.copyWith(color: primaryColor),),
           Spacer(),
           Icon(Icons.notifications_active)
           

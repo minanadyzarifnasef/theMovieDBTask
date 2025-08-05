@@ -67,7 +67,7 @@ class GoButton extends StatelessWidget {
             : Center(
           child: Text(
             titleKey,
-            style: TextStyles.bold16white.copyWith(color: textColor),
+            style: TextStyles.bold16.copyWith(color: textColor),
           ),
         ),
       ),
