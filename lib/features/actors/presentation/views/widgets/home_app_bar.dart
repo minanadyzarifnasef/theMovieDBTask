@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:themoviedbtask/core/constants/colors.dart';
 import 'package:themoviedbtask/core/constants/strings.dart';
 
-import '../../../../core/constants/constants.dart';
-import '../../../../core/style/text_style.dart';
+import '../../../../../core/constants/constants.dart';
+import '../../../../../core/style/text_style.dart';
+
+
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({required this.title,super.key});
   final String title;

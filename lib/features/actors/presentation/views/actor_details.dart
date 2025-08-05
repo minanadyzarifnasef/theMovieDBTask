@@ -5,10 +5,11 @@ import 'package:themoviedbtask/core/constants/constants.dart';
 import 'package:themoviedbtask/core/constants/strings.dart';
 import 'package:themoviedbtask/core/helper/extensions.dart';
 import 'package:themoviedbtask/core/style/widgets/go_button.dart';
-import 'package:themoviedbtask/features/actors/presentation/widgets/home_app_bar.dart';
-import 'package:themoviedbtask/features/actors/presentation/widgets/image_slider.dart';
 
-import '../../../core/style/text_style.dart';
+
+import '../../../../core/style/text_style.dart';
+import 'widgets/home_app_bar.dart';
+import 'widgets/image_slider.dart';
 
 class ActorDetails extends StatelessWidget {
   const ActorDetails({required this.actor, super.key});

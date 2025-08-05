@@ -5,9 +5,9 @@ import 'package:themoviedbtask/core/constants/constants.dart';
 import 'package:themoviedbtask/core/constants/strings.dart';
 import 'package:themoviedbtask/core/helper/extensions.dart';
 import 'package:themoviedbtask/core/routing/routes.dart';
-import 'package:themoviedbtask/features/actors/presentation/widgets/home_app_bar.dart';
 
-import '../../../core/style/text_style.dart';
+import '../../../../core/style/text_style.dart';
+import 'widgets/home_app_bar.dart';
 class ActorsListScreen extends StatelessWidget {
   const ActorsListScreen({super.key});
 

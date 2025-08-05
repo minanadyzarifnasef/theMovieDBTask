@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:themoviedbtask/core/style/widgets/full_screen_image_viewers.dart';
-import 'package:themoviedbtask/features/actors/presentation/actor_details.dart';
+import 'package:themoviedbtask/features/actors/presentation/views/actor_details.dart';
 import 'package:themoviedbtask/features/onbording/presentation/splash_screen.dart';
 
-import '../../features/actors/presentation/actors_list_screen.dart';
+import '../../features/actors/presentation/views/actors_list_screen.dart';
 import '../style/widgets/no_route_widget.dart';
 import 'routes.dart';
 
