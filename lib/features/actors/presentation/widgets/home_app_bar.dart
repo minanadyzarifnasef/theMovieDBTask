@@ -16,7 +16,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding:  EdgeInsets.only(top: 40.h,left: horizontalPadding,right:horizontalPadding ,bottom: horizontalPadding),
       child: Row(
         children: [
-          Image.asset("$imgUrl/icon.png",width: 50.w,),
+          Image.asset("$imgUrl/icon.png",width: 35.w,height: 60.h,fit: BoxFit.fill,),
           SizedBox(width: 5.w,),
           Text(title,style: TextStyles.bold16.copyWith(color: primaryColor),),
           Spacer(),
@@ -28,5 +28,5 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(70.h);
+  Size get preferredSize => Size.fromHeight(60.h);
 }
