@@ -10,11 +10,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  try{
-    await dotenv.load(fileName: ".env");
-  }catch(e){
-    print("error is $e");
-  }
+  await dotenv.load(fileName: ".env");
   await setupGetIt();
 
   runApp(const MyApp());

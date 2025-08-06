@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themoviedbtask/core/networking/api_result.dart';
 
@@ -7,47 +8,55 @@ import 'actors_states.dart';
 
 class ActorsCubit extends Cubit<ActorsStates> {
   final ActorsRepository _actorsRepository;
+
+
   ActorsCubit(this._actorsRepository) : super(const  ActorsStates.initial()){
     getActors();
+
   }
+
 
 
   int currentPage = 1;
+  bool isLoadingMore = false;
   ActorResponseModel? actorResponseModel;
-  Future<void> getActors() async {
+  Future<void> getActors({bool isPagination = false}) async {
 
     try {
       emit(ActorsStates.loading());
+      if (isPagination) {
+        isLoadingMore = true;
+      } else {
+        emit(ActorsStates.loading());
+      }
       final response = await _actorsRepository.getActors(currentPage);
-
 
       response.when(
         success: (data){
-          actorResponseModel=data;
-          currentPage=data.page??1;
-          print("success with data ${data.toJson()} ");
+          if (isPagination && actorResponseModel != null) {
+            actorResponseModel!.actorsList?.addAll(data.actorsList ?? []);
+          } else {
+            actorResponseModel = data;
+          }
+
+          currentPage = data.page ?? currentPage;
+          isLoadingMore = false;
           emit(ActorsStates.success(actorResponseModel));
         },
         failure: (failure){
-          print("failure with data ${failure.toString()} ");
-          emit(ActorsStates.error(message: "message"));
+          isLoadingMore = false;
+          emit(ActorsStates.error(message: "Something went wrong"));
 
         }
       );
-
-      // response.when(
-      //   success: (data) => _handleSuccess(data, isNextPage),
-      //   failure: (error) => _handleFailure(error.toString(), isNextPage),
-      // );
     } catch (e) {
-    //  _handleFailure('An unexpected error occurred: $e', isNextPage);
-    } finally {
-   //   _pagination = _pagination.copyWith(isLoading: false);
     }
   }
-  setCurrentPageToNext() {
-    if(currentPage<(actorResponseModel?.totalPages??0)){
-      currentPage+=1;
+  void fetchNextPageIfAvailable() {
+    if (currentPage < (actorResponseModel?.totalPages ?? 0) && !isLoadingMore) {
+      currentPage++;
+      getActors(isPagination: true);
     }
   }
+
 }
