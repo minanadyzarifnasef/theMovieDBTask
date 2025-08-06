@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../services/image_downloader.dart';
 import 'loader.dart';
 
 
@@ -23,8 +24,11 @@ class FullScreenImageViewer extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.download, color: Colors.white),
-            onPressed: () {
-              //todo :download image hna don't forget
+            onPressed: () async{
+              final success = await ImageDownloader.downloadImage(imageUrl);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(success ? 'Saved!' : 'Failed')),
+              );
             },
           ),
         ],
