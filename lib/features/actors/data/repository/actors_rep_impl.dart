@@ -19,4 +19,15 @@ class ActorsRepoImpl implements ActorsRepository {
       return ApiResult.failure(FailureModel(e.toString()));
     }
   }
+
+
+  @override
+  Future<ApiResult<ActorModel>> getActorDetails(int personId) async {
+    try {
+      final response = await _apiService.getActorDetails(personId);
+      return ApiResult.success(response);
+    } catch (e) {
+      return ApiResult.failure(FailureModel(e.toString()));
+    }
+  }
 }

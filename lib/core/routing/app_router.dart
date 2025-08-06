@@ -7,6 +7,7 @@ import 'package:themoviedbtask/features/actors/presentation/cubits/actors_cubit.
 import 'package:themoviedbtask/features/actors/presentation/views/actor_details.dart';
 import 'package:themoviedbtask/features/onbording/presentation/splash_screen.dart';
 
+import '../../features/actors/data/models/actors_response_model.dart';
 import '../../features/actors/presentation/views/actors_list_screen.dart';
 import '../di/dependency_injection.dart';
 import '../style/widgets/no_route_widget.dart';
@@ -29,7 +30,12 @@ class AppRouter {
 
         );
       case Routes.actorDetails:
-        return MaterialPageRoute(builder: (_) =>  ActorDetails(actor: arguments ));
+        return MaterialPageRoute(builder: (_) => BlocProvider(
+          create: (_) => getIt<ActorsCubit>(),
+          child:   ActorDetails(actor: arguments as ActorModel,),
+
+        ),
+            );
       case Routes.fullScreenImageViewer:
         return MaterialPageRoute(builder: (_) =>  FullScreenImageViewer(imageUrl: arguments as String, ));
      

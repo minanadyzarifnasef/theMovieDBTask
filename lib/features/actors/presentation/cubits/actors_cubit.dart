@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themoviedbtask/core/networking/api_result.dart';
 
@@ -56,6 +55,36 @@ class ActorsCubit extends Cubit<ActorsStates> {
     if (currentPage < (actorResponseModel?.totalPages ?? 0) && !isLoadingMore) {
       currentPage++;
       getActors(isPagination: true);
+    }
+  }
+
+
+
+
+
+  ActorModel? actorDetails;
+  Future<void> getActorDetails(int personID) async {
+
+    try {
+      emit(ActorsStates.loading());
+
+      final response = await _actorsRepository.getActorDetails(personID);
+
+      response.when(
+          success: (data){
+            actorDetails=data;
+            print("data is to json ${data.toJson()}");
+            print("actorDetails is to json ${actorDetails?.toJson()}");
+            emit(ActorsStates.success(actorDetails));
+          },
+          failure: (failure){
+
+            print("failure with ${ failure.message}");
+            emit(ActorsStates.error(message: "Something went wrong"));
+
+          }
+      );
+    } catch (e) {
     }
   }
 

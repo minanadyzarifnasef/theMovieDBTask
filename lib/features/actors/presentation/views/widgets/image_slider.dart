@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themoviedbtask/core/constants/colors.dart';
+import 'package:themoviedbtask/core/constants/strings.dart';
 import 'package:themoviedbtask/core/helper/extensions.dart';
 import 'package:themoviedbtask/core/routing/routes.dart';
 import 'package:themoviedbtask/core/style/widgets/loader.dart';
+import 'package:themoviedbtask/features/actors/presentation/cubits/actors_cubit.dart';
 
 class ImageSlider extends StatelessWidget {
   const ImageSlider({super.key});
@@ -12,14 +15,14 @@ class ImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return slider.CarouselSlider.builder(
-      itemCount: 10,
+      itemCount: 3,
       options: slider.CarouselOptions(
         height: 300,
         enlargeCenterPage: true,
         autoPlay: false,
       ),
       itemBuilder: (context, index, realIndex) {
-        String imageUrl = "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?cs=srgb&dl=pexels-vinicius-wiesehofer-289347-1130626.jpg&fm=jpg";
+        String imageUrl = "${serverImgUrl}${context.read<ActorsCubit>().actorDetails?.profilePath}";
 
         return ClipRRect(
           borderRadius: BorderRadius.circular(20),
@@ -27,7 +30,7 @@ class ImageSlider extends StatelessWidget {
             children: [
               CachedNetworkImage(
                 imageUrl: imageUrl,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 width: double.infinity,
 
                 placeholder: (context, url) => Center(

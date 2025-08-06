@@ -64,7 +64,7 @@ class _ActorsListScreenState extends State<ActorsListScreen> {
                     id: 0,
                     name: "Loading Name",
                     knownForDepartment: "Loading Department",
-                    profilePath: "", // Leave empty to show blank image
+                    profilePath: "",
                   ),
                 )
               : actors;
@@ -101,7 +101,10 @@ class _ActorsListScreenState extends State<ActorsListScreen> {
                   return GestureDetector(
                     onTap: state is LoadingActorsStates
                         ? null // disable tap during loading
-                        : () => context.pushNamed(Routes.actorDetails, arguments: actor),
+                        : (){
+
+                      context.pushNamed(Routes.actorDetails,arguments: actor );
+                    },
                     child: Card(
                       surfaceTintColor: primaryColor,
                       child: Padding(

@@ -1,4 +1,5 @@
 class ApiConstants {
   static const String apiBaseUrl = "https://api.themoviedb.org/3/";
   static const String getActors = "person/popular";
+  static const String getActorDetails = "person";
 }

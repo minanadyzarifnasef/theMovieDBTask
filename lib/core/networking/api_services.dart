@@ -13,4 +13,8 @@ abstract class ApiService {
   @GET(ApiConstants.getActors)
   Future<ActorResponseModel> getActors(@Query("page") int page);
 
+
+  @GET("${ApiConstants.getActorDetails}/{person_id}")
+  Future<ActorModel> getActorDetails(@Path("person_id") int personId);
+
 }

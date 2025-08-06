@@ -29,6 +29,9 @@ ActorModel _$ActorModelFromJson(Map<String, dynamic> json) => ActorModel(
       name: json['name'] as String?,
       knownForDepartment: json['known_for_department'] as String?,
       profilePath: json['profile_path'] as String?,
+      biography: json['biography'] as String?,
+      birthday: json['birthday'] as String?,
+      place_of_birth: json['place_of_birth'] as String?,
     );
 
 Map<String, dynamic> _$ActorModelToJson(ActorModel instance) =>
@@ -37,4 +40,7 @@ Map<String, dynamic> _$ActorModelToJson(ActorModel instance) =>
       'name': instance.name,
       'known_for_department': instance.knownForDepartment,
       'profile_path': instance.profilePath,
+      'biography': instance.biography,
+      'birthday': instance.birthday,
+      'place_of_birth': instance.place_of_birth,
     };

@@ -40,8 +40,12 @@ class ActorModel{
   @JsonKey(name: 'profile_path')
   String? profilePath;
 
+  String? biography;
+  String? birthday;
+  String? place_of_birth;
 
-  ActorModel({this.id,this.name,this.knownForDepartment,this.profilePath});
+
+  ActorModel({this.id,this.name,this.knownForDepartment,this.profilePath,this.biography,this.birthday,this.place_of_birth});
 
   factory ActorModel.fromJson(Map<String, dynamic> json) => _$ActorModelFromJson(json);
   Map<String, dynamic> toJson() => _$ActorModelToJson(this);
