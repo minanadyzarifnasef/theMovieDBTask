@@ -9,7 +9,7 @@ part of 'actors_response_model.dart';
 ActorResponseModel _$ActorResponseModelFromJson(Map<String, dynamic> json) =>
     ActorResponseModel(
       page: (json['page'] as num?)?.toInt(),
-      total_results: (json['total_results'] as num?)?.toInt(),
+      totalResults: (json['total_results'] as num?)?.toInt(),
       totalPages: (json['total_pages'] as num?)?.toInt(),
       actorsList: (json['results'] as List<dynamic>?)
           ?.map((e) => ActorModel.fromJson(e as Map<String, dynamic>))
@@ -20,7 +20,7 @@ Map<String, dynamic> _$ActorResponseModelToJson(ActorResponseModel instance) =>
     <String, dynamic>{
       'page': instance.page,
       'total_pages': instance.totalPages,
-      'total_results': instance.total_results,
+      'total_results': instance.totalResults,
       'results': instance.actorsList,
     };
 

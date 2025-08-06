@@ -12,13 +12,13 @@ class ActorResponseModel {
 
 
   @JsonKey(name: 'total_results')
-  int? total_results;
+  int? totalResults;
 
   @JsonKey(name: 'results')
   List<ActorModel>? actorsList;
 
 
-  ActorResponseModel({this.page,this.total_results,this.totalPages,this.actorsList});
+  ActorResponseModel({this.page,this.totalResults,this.totalPages,this.actorsList});
 
 
   factory ActorResponseModel.fromJson(Map<String, dynamic> json) => _$ActorResponseModelFromJson(json);

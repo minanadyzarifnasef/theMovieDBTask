@@ -1,4 +1,5 @@
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
@@ -7,6 +8,7 @@ import 'package:themoviedbtask/features/actors/domain/repository/actors_reposito
 import 'package:themoviedbtask/features/actors/presentation/cubits/actors_cubit.dart';
 import '../networking/api_services.dart';
 import '../networking/dio_factory.dart';
+import '../services/hive_service.dart';
 import '../services/network_checker_service.dart';
 
 final getIt = GetIt.instance;
@@ -14,9 +16,10 @@ final getIt = GetIt.instance;
 
 // i will used this to initialize  and register all requirement  before app go
 Future<void> setupGetIt() async {
+  await dotenv.load(fileName: ".env");
   // Initialize services first
   await NetworkConnectivityService.instance.initialize();
-
+  await HiveService.instance.initialize();
 
     //Register services
     Dio dio =await DioFactory.getDio();

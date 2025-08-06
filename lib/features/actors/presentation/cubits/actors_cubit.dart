@@ -29,7 +29,7 @@ class ActorsCubit extends Cubit<ActorsStates> {
         emit(ActorsStates.loading());
       }
       final response = await _actorsRepository.getActors(currentPage);
-
+      print("response with data ${response}");
       response.when(
         success: (data){
           if (isPagination && actorResponseModel != null) {
