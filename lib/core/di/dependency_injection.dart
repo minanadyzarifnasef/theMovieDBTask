@@ -18,9 +18,9 @@ Future<void> setupGetIt() async {
   await NetworkConnectivityService.instance.initialize();
 
 
-  //Register services
-  Dio dio =await DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+    //Register services
+    Dio dio =await DioFactory.getDio();
+    getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
 
   getIt.registerLazySingleton<ActorsRepository>(() => ActorsRepoImpl(getIt()));

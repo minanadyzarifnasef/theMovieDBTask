@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -13,12 +14,14 @@ class DioFactory {
     Duration timeOut = const Duration(seconds: 30);
 
     if (dio == null) {
+        final apiKey = dotenv.env['TMDB_API_KEY'];
+
       dio = Dio();
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut
         ..options.headers = {
-        "Authorization": "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMGVmZjBjNmVhMDZhNDgwNTJlYzQyZDYyNDczZTk1ZCIsIm5iZiI6MTc1Mzg5NjQyMi4wMTQwMDAyLCJzdWIiOiI2ODhhNTVlNjdhZDQ5ZGU0MGQ2OTQ1NzciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.5SK5x3v3DX98seOlPSgqjWzn78yjxut_YbyoxxUykN4",
+        "Authorization": "Bearer $apiKey",
         //  "Content-Type": "multipart/form-data",
         };
 

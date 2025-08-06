@@ -6,9 +6,15 @@ import 'core/di/dependency_injection.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/style/widgets/responsive_wrapper.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  try{
+    await dotenv.load(fileName: ".env");
+  }catch(e){
+    print("error is $e");
+  }
   await setupGetIt();
 
   runApp(const MyApp());
