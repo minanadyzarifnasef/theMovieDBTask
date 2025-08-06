@@ -1,0 +1,40 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'actors_response_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ActorResponseModel _$ActorResponseModelFromJson(Map<String, dynamic> json) =>
+    ActorResponseModel(
+      page: (json['page'] as num?)?.toInt(),
+      total_results: (json['total_results'] as num?)?.toInt(),
+      totalPages: (json['total_pages'] as num?)?.toInt(),
+      actorsList: (json['results'] as List<dynamic>?)
+          ?.map((e) => ActorModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$ActorResponseModelToJson(ActorResponseModel instance) =>
+    <String, dynamic>{
+      'page': instance.page,
+      'total_pages': instance.totalPages,
+      'total_results': instance.total_results,
+      'results': instance.actorsList,
+    };
+
+ActorModel _$ActorModelFromJson(Map<String, dynamic> json) => ActorModel(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      knownForDepartment: json['known_for_department'] as String?,
+      profilePath: json['profile_path'] as String?,
+    );
+
+Map<String, dynamic> _$ActorModelToJson(ActorModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'known_for_department': instance.knownForDepartment,
+      'profile_path': instance.profilePath,
+    };
