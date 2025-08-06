@@ -1,12 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/constants.dart';
-import '../../constants/strings.dart';
-import '../../services/network_checker_service.dart';
-import '../text_style.dart';
+
 class ResponsiveWrapper extends StatelessWidget {
   final Widget child;
 

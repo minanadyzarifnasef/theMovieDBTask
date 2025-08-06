@@ -73,13 +73,11 @@ class ActorsCubit extends Cubit<ActorsStates> {
       response.when(
           success: (data){
             actorDetails=data;
-            print("data is to json ${data.toJson()}");
-            print("actorDetails is to json ${actorDetails?.toJson()}");
+
             emit(ActorsStates.success(actorDetails));
           },
           failure: (failure){
 
-            print("failure with ${ failure.message}");
             emit(ActorsStates.error(message: "Something went wrong"));
 
           }

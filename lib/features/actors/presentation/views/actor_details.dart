@@ -44,7 +44,6 @@ class _ActorDetailsState extends State<ActorDetails> {
         builder: (context, state) {
 
           //final actor = state is SuccessActorsStates ? cubit.actorDetails : null;
-         print("actor2 is to json ${cubit.actorDetails ?.toJson()}");
           return Skeletonizer(
             enabled: state is LoadingActorsStates,
             effect: ShimmerEffect(
